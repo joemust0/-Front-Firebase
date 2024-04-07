@@ -1,28 +1,17 @@
+import  mustache from "https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.2.0/mustache.min.js"
+import { Drawer } from "./gui/Drawer.js";
+
 export class GuiController{
 
-    #btnToggleDrawer;
-    #menuDrawer;
+  #guiComponents = {}
 
-    constructor(){
-        this.#btnToggleDrawer = document.getElementById("btnToggleDrawer");
-        this.#menuDrawer = document.getElementById("drawerMenu");
-        
-        
-        this.#btnToggleDrawer.addEventListener(
-            "click",
-            () => {
-                if(this.#menuDrawer = document.getElementById("drawerMenu").style.display == ""){
-                    document.getElementById("drawerMenu").style.display = "block";
-                    return;
-                }
+    buildGui(){
+        this.#guiComponents.drawer = new Drawer("drawerMenu", "btnToggleDrawer");
+        this.#renderGuiComponents();
+    }
 
-                if(this.#menuDrawer = document.getElementById("drawerMenu").style.display == "none"){
-                    document.getElementById("drawerMenu").style.display = "block";
-                }else{
-                    document.getElementById("drawerMenu").style.display = "none";
-                }
-
-                 });
+    #renderGuiComponents(){
+        this.#guiComponents.drawer.render();
     }
 
 }

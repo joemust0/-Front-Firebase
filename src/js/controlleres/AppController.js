@@ -4,5 +4,8 @@ export class AppController{
 
     setGuiController(controladorDeInterface){
         this.#guiController = controladorDeInterface;
+        this.#guiController.buildGui();
+
+    
     }
 }
