@@ -1,5 +1,11 @@
 import  mustache from "https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.2.0/mustache.min.js"
 
+const form = {
+    email: () => document.getElementById('email'),
+    senha: () => document.getElementById('senha')
+}
+
+
 export class Drawer {
 
     btnToggleDrawerElm;
@@ -69,16 +75,12 @@ export class Drawer {
     }
 
     toggleDrawer() {
-        if(this.drawerElm.style.display === ""){
-            this.#openDrawer();
-            return
-        }
-
         if(this.drawerElm.style.display === "none"){
             this.#openDrawer();
         }else{this.#closeDrawer();}
         }
 
 
+        
     }
 

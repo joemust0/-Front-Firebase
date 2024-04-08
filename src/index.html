@@ -34,11 +34,6 @@
         <h1>Catracas ETEC Zona Leste</h1>
         <p>Controle de Acesso: Catracas ETEC Zona Leste.</p>
       </div>
-
-
-  
-
-
     
       <!-- Gui Widgets -->
   <script id="installPwaWebAPPWidgetTmpl" type="text/template">
@@ -78,10 +73,10 @@
     </div>
   </script>
 
-  <form>
-    <div class="login">
+  <form class="login">
+    <div >
       <div><label>E-mail:</label></div>
-      <input type="email" name="e-mail" id="email" placeholder="Digite seu e-mail" required >
+      <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required >
     </div>
     <div>
       <div><label>Senha:</label></div>
@@ -92,7 +87,7 @@
       <button class="recover" type="button" id="btn-recover" >Recuperar senha</button>
     </div>
     <div>
-      <button type="button" >Entrar</button>
+      <button type="button" id="btn-login" onclick="login()">Entrar</button>
     </div>
     <div>
       <button type="button">Cadastra-se</button>
@@ -115,13 +110,26 @@
 
   firebase.initializeApp(firebaseConfig );
 
-  console.log('antes');
-  firebase.auth().signInWithEmailAndPassword("joaofss.1991@gmail.com", "123456").then(response =>{
-    console.log("Sucesso", response)
-  }).catch(error =>{
-    console.log("error", response)
-  });
-  console.log('depois');
+
+  const form = {
+    email: () => document.getElementById('email'),
+    senha: () => document.getElementById('senha')
+}
+
+  function login(){
+            firebase.auth().signInWithEmailAndPassword(form.email().value, form.senha().value).then(response =>{
+              window.location.href="./pages/home.html";
+            }).catch(error =>{
+                alert(getErrorMessage(error));
+            });
+        }
+    
+       function getErrorMessage(error) {
+            if(error.code == "auth/user-not-found") {
+                return "Usuário não encontrado"
+            }
+            return error.message;
+        }
 </script>
 
 </html>

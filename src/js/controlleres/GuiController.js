@@ -1,9 +1,10 @@
 import  mustache from "https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.2.0/mustache.min.js"
 import { Drawer } from "./gui/Drawer.js";
 
+
 export class GuiController{
 
-  #guiComponents = {}
+    #guiComponents = {}
 
     buildGui(){
         this.#guiComponents.drawer = new Drawer("drawerMenu", "btnToggleDrawer");
@@ -13,5 +14,5 @@ export class GuiController{
     #renderGuiComponents(){
         this.#guiComponents.drawer.render();
     }
-
+        
 }
