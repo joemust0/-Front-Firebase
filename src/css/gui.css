@@ -10,3 +10,60 @@
     background-color: gray; /*rgb(0,0,0);*/    
     padding-top: 60px;
 }
+
+form {
+    display: grid;
+    background: lightblue;
+    border: none;
+    box-sizing: border-box;
+    margin-left: 15%;
+    box-shadow: navy -2px 4px;
+    border-radius: 30px;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 15px;
+    min-width: calc(100% - 56px);
+}
+button {
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 15%;
+    border: none;
+    border-radius: 15px;
+    width: 150px;
+    background-color: navy;
+    color: azure;
+    box-shadow: black 2px 2px;
+}
+
+button:hover {
+    transition: 0.2s;
+    background-color: skyblue;
+    color: blue;
+    box-shadow: navy -2px -2px;
+}
+
+ .recover  {
+background-color: lightblue;
+box-shadow: none;
+color: blue;
+}
+
+.recover:hover {
+    background: none;
+    box-shadow: none;
+    color: brown;
+ }
+
+ .recover:active {
+    text-decoration: underline;
+}
+

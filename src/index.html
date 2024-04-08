@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,6 @@
   <script type="module">    
     import {appInstance} from "./js/controlleres/App.js";
     window.app = appInstance;
-  
   </script>
 
 </head>
@@ -24,22 +23,22 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="#">ETEC ZL</a>
-        
         <div id="drawerMenu" class="drawer container border border-primary-subtle rounded-end"></div>
-
-
         <div id="installPwaWebAPP"></div>
         <div id="user_identification_div" class="d-flex">
           <i class="bi bi-person-circle"></i>
           <a class="nav-link" href="#">User Name</a>
         </div>
       </nav>
-    
       <div class="container">
         <h1>Catracas ETEC Zona Leste</h1>
         <p>Controle de Acesso: Catracas ETEC Zona Leste.</p>
       </div>
-    
+
+
+  
+
+
     
       <!-- Gui Widgets -->
   <script id="installPwaWebAPPWidgetTmpl" type="text/template">
@@ -79,5 +78,50 @@
     </div>
   </script>
 
+  <form>
+    <div class="login">
+      <div><label>E-mail:</label></div>
+      <input type="email" name="e-mail" id="email" placeholder="Digite seu e-mail" required >
+    </div>
+    <div>
+      <div><label>Senha:</label></div>
+      <input type="password" name="senha" id="senha" placeholder="Digite sua senha." required>
+   </div>  
+    <div class="btn-login">
+      <div>
+      <button class="recover" type="button" id="btn-recover" >Recuperar senha</button>
+    </div>
+    <div>
+      <button type="button" >Entrar</button>
+    </div>
+    <div>
+      <button type="button">Cadastra-se</button>
+    </div>
+  </form>
+
 </body>
+<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
+
+<script>
+  const firebaseConfig  = {
+    apiKey: "AIzaSyCiETjJCiGgpTy0cmV7pM7j86auWdKn9KY",
+    authDomain: "front-firebase-3e3e5.firebaseapp.com",
+    projectId: "front-firebase-3e3e5",
+    storageBucket: "front-firebase-3e3e5.appspot.com",
+    messagingSenderId: "12959343383",
+    appId: "1:12959343383:web:3ff34aee01c11028d84d52"
+  };
+
+  firebase.initializeApp(firebaseConfig );
+
+  console.log('antes');
+  firebase.auth().signInWithEmailAndPassword("joaofss.1991@gmail.com", "123456").then(response =>{
+    console.log("Sucesso", response)
+  }).catch(error =>{
+    console.log("error", response)
+  });
+  console.log('depois');
+</script>
+
 </html>

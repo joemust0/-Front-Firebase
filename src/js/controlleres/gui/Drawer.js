@@ -9,7 +9,7 @@ export class Drawer {
         {
             label : "Login",
             elmId : "drawerMnuItem_Login",
-            action: "open_view_login"
+            action: "./../../../login.html"
         },        
         {
             label : "Cadastrar Aluno",
